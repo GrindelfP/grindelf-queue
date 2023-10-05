@@ -1,0 +1,5 @@
+= Grindelf Queue =
+
+== Description ==
+
+This is a realization of a Queue data structure in C programming language. The purpose of this project is purely educational which both let its creator study pointers in C and Queue data structure.

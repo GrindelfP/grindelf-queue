@@ -15,18 +15,28 @@
 #include "queue.h"
 
 int main() {
-    printf("Start!\n");
+    printf("Start!\n\n");
 
     Queue queue = init(5);
-    printf("Queue initialized!\n");
-    printf("Queue size: %d\n", queue.size);
-    printf("Queue cursor: %d\n", queue.cursor);
 
-    enqueue(&queue, "first");
-    printf("First element enqueued!\n");
-    printf("Queue cursor: %d\n", queue.cursor);
-    DequeuePair pickedValue = peek(&queue);
-    printf("Queue content: %s, %d\n", pickedValue.value, pickedValue.resultCode);
+    printf("Queue size: %d\n", queue.size);
+    printf("Queue cursor: %d\n\n", queue.cursor);
+
+    for (int i = 0; i < 5; ++i) {
+        enqueue(&queue, i + 1);
+    }
+
+    printf("Queue size: %d\n", queue.size);
+    printf("Queue cursor: %d\n\n", queue.cursor);
+
+    for (int i = 0; i < 5; ++i) {
+        printf("%d\n", dequeue(&queue).value);
+    }
+
+    printf("Queue size: %d\n", queue.size);
+    printf("Queue cursor: %d\n\n", queue.cursor);
+
+    destroy(&queue);
 
     return 0;
 }

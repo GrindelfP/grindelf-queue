@@ -11,87 +11,55 @@
  *
  */
 
+#include <printf.h>
 #include "queue.h"
 
-/*
- * Initializes Queue.
- * Sets Queue's size equal to size passed as a parameter.
- * Sets Queue's cursor equal to 0 as initial position.
- * Initializes Queue's content as a 2-d array of chars with lengths of size
- * (length of simple arrays is not pre-defined).
- *
- * @param size - size of the queue as a container.
- *
- * @return 0 if enqueueing completed and -1 if an error occurred.
- */
 Queue init(int size) {
     Queue queue;
-    char *container[size];
+    //int container[size];
     queue.size = size;
     queue.cursor = INITIAL_CURSOR_POSITION;
-    queue.content = container;
+    queue.content = malloc(sizeof(int) * size);
+
+    printf("Queue initialized!\n");
 
     return queue;
 }
 
-/*
- * Enqueues a char* element into queue.
- *
- * @param queue - queue on which operation is performed.
- * @param element - element which will be enqueued.
- *
- * @return 0 if enqueueing completed and -1 if an error occurred.
- */
-int enqueue(Queue *queue, char *element) {
+int enqueue(Queue *queue, int element) {
     int completion = -1;
 
-    if (queue->cursor != queue->size - 1) {
+    if (queue->cursor < queue->size) {
         queue->content[queue->cursor] = element;
         queue->cursor++;
         completion = 0;
+        printf("Element %d enqueued!\n", element);
     }
 
     return completion;
 }
 
-/*
- * Dequeues a char* element into queue.
- *
- * @param queue - queue on which operation is performed.
- *
- * @return DequeuePair containing dequeued value and result code.
- *         0 is returned if function worked without errors,
- *         -1 if errors occurred (this case dequeued value equals NULL).
- */
 DequeuePair dequeue(Queue *queue) {
     DequeuePair result;
 
     if (queue->cursor == 0) {
-        result.value = NULL;
+        result.value = nullptr;
         result.resultCode = -1;
     } else {
-        result.value = queue->content[0];
+        int value = queue->content[0];
+        result.value = value;
         result.resultCode = shift(queue);
+        printf("Element %d dequeued!\n", value);
     }
 
     return result;
 }
 
-/*
- * Returns a char* element from queue without removing it.
- * Used for picking the first element in queue.
- *
- * @param queue - queue on which operation is performed.
- *
- * @return DequeuePair containing dequeued value and result code.
- *         0 is returned if function worked without errors,
- *         -1 if errors occurred (this case dequeued value equals NULL).
- */
 DequeuePair peek(Queue *queue) {
     DequeuePair result;
 
     if (queue->cursor == 0) {
-        result.value = NULL;
+        result.value = nullptr;
         result.resultCode = -1;
     } else {
         result.value = queue->content[0];
@@ -101,13 +69,12 @@ DequeuePair peek(Queue *queue) {
     return result;
 }
 
-/*
- * Shifts queue's content to the beginning after first element is dequeued.
- *
- * @param queue - queue on which operation is performed.
- *
- * @return 0 if function worked without errors, -1 if errors occurred.
- */
+int destroy(Queue *pQueue) {
+    free(pQueue);
+
+    return 0;
+}
+
 int shift(Queue *queue) {
     int completion = -1;
 

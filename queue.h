@@ -14,36 +14,37 @@
 #ifndef GRINDELF_QUEUE_QUEUE_H
 #define GRINDELF_QUEUE_QUEUE_H
 
-#define INITIAL_CURSOR_POSITION 0
-#define NULL "\0"
+#include <stdlib.h>
 
-/*
+#define INITIAL_CURSOR_POSITION 0
+#define nullptr '\0'
+
+/**
  * Struct represents a Queue data container.
  * Contains:
- *   -  size - constant size of the container.
- *   -  cursor - an index of the last added element.
- *   -  content - a 2-d array of characters, which store
- *                elements in form of 0-tempered strings.
+ * 1. size - constant size of the container,
+ * 2. cursor - an index of the last added element,
+ * 3. content - an array of integers.
  */
 struct Queue {
     int size;
     int cursor;
-    char **content;
+    int *content;
 } typedef Queue;
 
-/*
+/**
  * Struct used to wrap return value of Queue's dequeue() function.
  * Contains:
- *   -  value - the return value after dequeue() is completed. In case of
- *              error is initiated with NULL value.
- *   -  resultCode - equals 0 if dequeue() is completed correctly, -1 otherwise.
+ *   1.  value - the return value after dequeue() is completed. In case of
+ *              error is initiated with NULL value,
+ *   2.  resultCode - equals 0 if dequeue() is completed correctly, -1 otherwise.
  */
 struct DequeuePair {
-    char *value;
+    int value;
     int resultCode;
 } typedef DequeuePair;
 
-/*
+/**
  * Initializes Queue.
  * Sets Queue's size equal to size passed as a parameter.
  * Sets Queue's cursor equal to 0 as initial position.
@@ -56,7 +57,7 @@ struct DequeuePair {
  */
 Queue init(int size);
 
-/*
+/**
  * Enqueues a char* element into queue.
  *
  * @param queue - queue on which operation is performed.
@@ -64,9 +65,9 @@ Queue init(int size);
  *
  * @return 0 if enqueueing completed and -1 if an error occurred.
  */
-int enqueue(Queue *queue, char *element);
+int enqueue(Queue *queue, int element);
 
-/*
+/**
  * Dequeues a char* element into queue.
  *
  * @param queue - queue on which operation is performed.
@@ -77,7 +78,7 @@ int enqueue(Queue *queue, char *element);
  */
 DequeuePair dequeue(Queue *queue);
 
-/*
+/**
  * Returns a char* element from queue without removing it.
  * Used for picking the first element in queue.
  *
@@ -89,7 +90,16 @@ DequeuePair dequeue(Queue *queue);
  */
 DequeuePair peek(Queue *queue);
 
-/*
+/**
+ * Destroys Queue variable and clears all the memory allocated for it.
+ *
+ * @param pQueue Queue variable to be destroyed.
+ *
+ * @return 0 when Queue variable is destroyed.
+ */
+int destroy(Queue *pQueue);
+
+/**
  * Shifts queue's content to the beginning after first element is dequeued.
  *
  * @param queue - queue on which operation is performed.

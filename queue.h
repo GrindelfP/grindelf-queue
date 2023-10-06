@@ -78,6 +78,18 @@ int enqueue(Queue *queue, char *element);
 DequeuePair dequeue(Queue *queue);
 
 /*
+ * Returns a char* element from queue without removing it.
+ * Used for picking the first element in queue.
+ *
+ * @param queue - queue on which operation is performed.
+ *
+ * @return DequeuePair containing dequeued value and result code.
+ *         0 is returned if function worked without errors,
+ *         -1 if errors occurred (this case dequeued value equals NULL).
+ */
+DequeuePair peek(Queue *queue);
+
+/*
  * Shifts queue's content to the beginning after first element is dequeued.
  *
  * @param queue - queue on which operation is performed.

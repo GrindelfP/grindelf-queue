@@ -46,7 +46,8 @@ int enqueue(Queue *queue, char *element) {
     int completion = -1;
 
     if (queue->cursor != queue->size - 1) {
-        queue->content[queue->cursor++] = element;
+        queue->content[queue->cursor] = element;
+        queue->cursor++;
         completion = 0;
     }
 
@@ -71,6 +72,30 @@ DequeuePair dequeue(Queue *queue) {
     } else {
         result.value = queue->content[0];
         result.resultCode = shift(queue);
+    }
+
+    return result;
+}
+
+/*
+ * Returns a char* element from queue without removing it.
+ * Used for picking the first element in queue.
+ *
+ * @param queue - queue on which operation is performed.
+ *
+ * @return DequeuePair containing dequeued value and result code.
+ *         0 is returned if function worked without errors,
+ *         -1 if errors occurred (this case dequeued value equals NULL).
+ */
+DequeuePair peek(Queue *queue) {
+    DequeuePair result;
+
+    if (queue->cursor == 0) {
+        result.value = NULL;
+        result.resultCode = -1;
+    } else {
+        result.value = queue->content[0];
+        result.resultCode = 0;
     }
 
     return result;

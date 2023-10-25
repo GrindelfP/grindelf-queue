@@ -15,45 +15,46 @@
 #define GRINDELF_QUEUE_QUEUE_H
 
 #include <stdlib.h>
+#include <printf.h>
+#include <assert.h>
 
 #define INITIAL_CURSOR_POSITION 0
-#define nullptr '\0'
+#define ELEMENT_SIZE 100
 
 /**
  * Struct represents a Queue data container.
- * Contains:
- * 1. size - constant size of the container,
- * 2. cursor - an index of the last added element,
- * 3. content - an array of integers.
+ *
+ * <p><strong>Content</strong></p>
+ * <ol>
+ * <li> content - a 2d array of char, containing values of the Queue, </li>
+ * <li> size - size of the Queue, </li>
+ * <li> frontCursor - an index of the first added element, which moves forward if an element is dequeued, </li>
+ * <li> backCursor - an index of the last added element, which moves forward if a new element is enqueued, </li>
+ * <li> numberOfElements - number of elements in the Queue. </li>
+ * </ol>
  */
 struct Queue {
+    char **content;
     int size;
-    int cursor;
-    int *content;
+    int frontCursor;
+    int backCursor;
+    int numberOfElements;
 } typedef Queue;
-
-/**
- * Struct used to wrap return value of Queue's dequeue() function.
- * Contains:
- *   1.  value - the return value after dequeue() is completed. In case of
- *              error is initiated with NULL value,
- *   2.  resultCode - equals 0 if dequeue() is completed correctly, -1 otherwise.
- */
-struct DequeuePair {
-    int value;
-    int resultCode;
-} typedef DequeuePair;
 
 /**
  * Initializes Queue.
  * Sets Queue's size equal to size passed as a parameter.
- * Sets Queue's cursor equal to 0 as initial position.
+ * Sets Queue's backCursor equal to 0 as initial position.
  * Initializes Queue's content as a 2-d array of chars with lengths of size
  * (length of simple arrays is not pre-defined).
  *
  * @param size - size of the queue as a container.
  *
  * @return 0 if enqueueing completed and -1 if an error occurred.
+ *
+ * <strong>IMPORTANT:</strong>
+ * Make sure to call destroy() function when you are done using the Queue
+ * to avoid memory leaks.
  */
 Queue init(int size);
 
@@ -61,22 +62,20 @@ Queue init(int size);
  * Enqueues a char* element into queue.
  *
  * @param queue - queue on which operation is performed.
- * @param element - element which will be enqueued.
+ * @param element - element which will be enqueued in a form of char array.
  *
  * @return 0 if enqueueing completed and -1 if an error occurred.
  */
-int enqueue(Queue *queue, int element);
+int enqueue(Queue *queue, char *element);
 
 /**
  * Dequeues a char* element into queue.
  *
  * @param queue - queue on which operation is performed.
  *
- * @return DequeuePair containing dequeued value and result code.
- *         0 is returned if function worked without errors,
- *         -1 if errors occurred (this case dequeued value equals NULL).
+ * @return char array representation of a value of dequeued element or NULL if the Queue is empty.
  */
-DequeuePair dequeue(Queue *queue);
+char * dequeue(Queue *queue);
 
 /**
  * Returns a char* element from queue without removing it.
@@ -84,28 +83,21 @@ DequeuePair dequeue(Queue *queue);
  *
  * @param queue - queue on which operation is performed.
  *
- * @return DequeuePair containing dequeued value and result code.
- *         0 is returned if function worked without errors,
- *         -1 if errors occurred (this case dequeued value equals NULL).
+ * @return char array representation of a value of dequeued element or NULL if the Queue is empty.
  */
-DequeuePair peek(Queue *queue);
+char * peek(Queue *queue);
 
 /**
  * Destroys Queue variable and clears all the memory allocated for it.
  *
- * @param pQueue Queue variable to be destroyed.
+ * @param queue Queue variable to be destroyed.
  *
  * @return 0 when Queue variable is destroyed.
- */
-int destroy(Queue *pQueue);
-
-/**
- * Shifts queue's content to the beginning after first element is dequeued.
  *
- * @param queue - queue on which operation is performed.
- *
- * @return 0 if function worked without errors, -1 if errors occurred.
+ * <strong>IMPORTANT:</strong>
+ * Make sure to call this function when you are done using the Queue
+ * to avoid memory leaks.
  */
-int shift(Queue *queue);
+int destroy(Queue *queue);
 
 #endif //GRINDELF_QUEUE_QUEUE_H

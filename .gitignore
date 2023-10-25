@@ -1,2 +1,19 @@
+#
+#   ____        ___
+#  / ___|      / _ \ _   _  ___ _   _  ___
+# | |  _ _____| | | | | | |/ _ \ | | |/ _ \
+# | |_| |_____| |_| | |_| |  __/ |_| |  __/
+#  \____|      \__\_\\__,_|\___|\__,_|\___|
+#
+# Grindelf-Queue project. Project .gitignore file
+#
+# Created by GrindelfP on 2023-10-05.
+#
+#README: This file contains the list of files that should be ignored by git.
+#
+# 1. CMake build directory which is created on your local machine when you build the project
+# 2. IntelliJ IDEA (project development IDE's) project files
+#
+
 cmake-build-debug
 .idea

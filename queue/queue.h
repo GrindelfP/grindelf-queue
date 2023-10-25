@@ -17,9 +17,12 @@
 #include <stdlib.h>
 #include <printf.h>
 #include <assert.h>
+#include <string.h>
 
 #define INITIAL_CURSOR_POSITION 0
 #define ELEMENT_SIZE 100
+#define QUEUE_OVERFLOW_ERROR (-1)
+#define EMPTY_QUEUE_ERROR NULL
 
 /**
  * Struct represents a Queue data container.
@@ -75,7 +78,7 @@ int enqueue(Queue *queue, char *element);
  *
  * @return char array representation of a value of dequeued element or NULL if the Queue is empty.
  */
-char * dequeue(Queue *queue);
+char *dequeue(Queue *queue);
 
 /**
  * Returns a char* element from queue without removing it.
@@ -85,7 +88,7 @@ char * dequeue(Queue *queue);
  *
  * @return char array representation of a value of dequeued element or NULL if the Queue is empty.
  */
-char * peek(Queue *queue);
+char *peek(Queue *queue);
 
 /**
  * Destroys Queue variable and clears all the memory allocated for it.

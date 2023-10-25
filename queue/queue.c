@@ -15,10 +15,9 @@
 
 Queue init(int size) {
     Queue queue;
-    queue.content = malloc(sizeof(int) * size);
-    char** array = (char**)malloc(size * sizeof(char*));
+    char **array = (char **) malloc(size * sizeof(char *));
     for (int i = 0; i < size; ++i) {
-        array[i] = (char*)malloc(ELEMENT_SIZE * sizeof(char));
+        array[i] = (char *) malloc(ELEMENT_SIZE * sizeof(char));
     }
     queue.content = array;
 
@@ -33,9 +32,11 @@ Queue init(int size) {
 }
 
 int enqueue(Queue *queue, char *element) {
-    int completion = -1;
+    int completion = QUEUE_OVERFLOW_ERROR;
 
     if (queue->numberOfElements != queue->size) {
+        queue->content[queue->backCursor] = (char *) malloc(sizeof(element));
+        strcpy(queue->content[queue->backCursor], element);
         queue->content[queue->backCursor] = element;
         queue->backCursor = (queue->backCursor + 1) % queue->size;
         queue->numberOfElements++;
@@ -47,37 +48,41 @@ int enqueue(Queue *queue, char *element) {
     return completion;
 }
 
-char * dequeue(Queue *queue) {
+char *dequeue(Queue *queue) {
     char *result;
 
     if (queue->numberOfElements == 0) {
-        result = NULL;
+        result = EMPTY_QUEUE_ERROR;
     } else {
         result = queue->content[queue->frontCursor];
         queue->frontCursor = (queue->frontCursor + 1) % queue->size;
         queue->numberOfElements--;
     }
+    printf("Element %s dequeued!\n", result);
 
     return result;
 }
 
-char * peek(Queue *queue) {
+char *peek(Queue *queue) {
     char *result;
 
     if (queue->numberOfElements == 0) {
-        result = NULL;
+        result = EMPTY_QUEUE_ERROR;
     } else {
         result = queue->content[queue->frontCursor];
     }
+    printf("Element %s peeked!\n", result);
 
     return result;
 }
 
 int destroy(Queue *queue) {
+    printf("Destroying Queue...\n");
     for (int i = 0; i < queue->size; i++) {
         free(queue->content[i]);
     }
-    free(queue);
+    free(queue->content);
+    printf("Queue destroyed!\n");
 
     return 0;
 }

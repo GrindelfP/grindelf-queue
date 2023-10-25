@@ -5,21 +5,26 @@
  * | |_| |_____| |_| | |_| |  __/ |_| |  __/
  *  \____|      \__\_\\__,_|\___|\__,_|\___|
  *
- * Grindelf-Queue project. Queue testing file
+ * Grindelf-Queue project. Queue testing source code file.
+ * All the tests are written to be used without any testing framework,
+ * so anyone obtaining this library can test it without any additional software.
  *
  * Created by GrindelfP on 2023-10-05.
  *
  */
 
-#include "test.h"
 #include "createDestroyTest.h"
+#include "enqueuePeekDequeueTest.h"
 
 int main() {
-    printf("Start!\n\n");
+    givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying();
 
-    Queue queue = init(5);
+    givenInitializedQueueAndElement_WhenDequeuedOverQueueSizeElements_ThenErrorOfEmptyQueueOccurred();
 
-    destroy(&queue);
+    givenInitializedQueueAndElement_WhenEnqueuedOverQueueSizeElements_ThenErrorOfFullQueueOccurred();
+
+    givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueingAndPeekingAndDequeueing();
+
 
     return 0;
 }

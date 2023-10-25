@@ -38,8 +38,11 @@ set(
 set(
         TEST_FILES
         test/test.c
-        test/createDestroyTest.h
         test/test.h
+        test/createDestroyTest.h
+        test/enqueuePeekDequeueTest.h
+        test/createDestroyTest.c
+        test/enqueuePeekDequeueTest.c
         ${QUEUE_SOURCE_FILES}
 )
 

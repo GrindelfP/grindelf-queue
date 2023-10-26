@@ -29,7 +29,7 @@ Queue init(int size) {
         queue.numberOfElements = 0;
 
         printf("Queue initialized!\n");
-    } else { NULL_QUEUE; }
+    } else { NULL_QUEUE; NULL_QUEUE_MESSAGE; }
 
     return queue;
 }
@@ -40,7 +40,6 @@ int enqueue(Queue *queue, char *element) {
     if (queue->numberOfElements != queue->size) {
         queue->content[queue->backCursor] = (char *) malloc(sizeof(element));
         strcpy(queue->content[queue->backCursor], element);
-        //queue->content[queue->backCursor] = element;
         queue->backCursor = (queue->backCursor + 1) % queue->size;
         queue->numberOfElements++;
         completion = 0;
@@ -80,7 +79,6 @@ char *peek(Queue *queue) {
 }
 
 int destroy(Queue *queue) {
-    printf("Destroying Queue...\n");
     for (int i = 0; i < queue->size; i++) {
         free(queue->content[i]);
     }

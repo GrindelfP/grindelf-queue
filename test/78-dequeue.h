@@ -35,7 +35,7 @@
  * <li>element is dequeued </li>
  * </ol>
  */
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing();
+void givenInitializedQueueAndOneElementInIt_WhenDequeueElement_ThenNoErrorsOccurredDuringDequeueing();
 
 /**
  * Tests if error of empty queue occurred on dequeueing the empty Queue.

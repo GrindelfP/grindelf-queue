@@ -22,9 +22,11 @@
 
 #include "78-dequeue.h"
 
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing() {
+void givenInitializedQueueAndOneElementInIt_WhenDequeueElement_ThenNoErrorsOccurredDuringDequeueing() {
 
-    char *testName = "GIVEN initialized queue AND one element, WHEN enqueued elements, THEN no errors occurred during enqueueing and peeking and dequeueing";
+    char *testName = "GIVEN initialized queue AND one element in it, WHEN dequeued element, "
+                     "THEN no errors occurred during dequeueing";
+
 
     START_MESSAGE(testName);
 
@@ -36,7 +38,7 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
 
     char *dequeuedElement = dequeue(&queue);
 
-    if (dequeuedElement == element) SUCCESS_MESSAGE(testName);
+    if (strcmp(dequeuedElement, element) == 0) SUCCESS_MESSAGE(testName);
     else
         ERROR_MESSAGE(testName);
 

@@ -32,13 +32,13 @@ int main() {
     givenInitializedAndFullQueueAndOneMoreElements_WhenTryToEnqueueElement_ThenQueueOverflowErrorOccurred();
 
     // Test 5. Normal peeking elements from the Queue
-    givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking();
+    givenInitializedQueueAndOneElementInIt_WhenPeekElement_ThenNoErrorsOccurredDuringPeeking();
 
     // Test 6. Peeking elements from the empty Queue
-    givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred();
+    givenInitializedEmptyQueue_WhenPeekElement_ThenEmptyQueueErrorOccurred();
 
     // Test 7. Normal dequeueing elements from the Queue
-    givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing();
+    givenInitializedQueueAndOneElementInIt_WhenDequeueElement_ThenNoErrorsOccurredDuringDequeueing();
 
     // Test 8. Dequeueing elements from the empty Queue
     givenInitializedEmptyQueue_WhenTryToDequeueElement_ThenEmptyQueueErrorOccurred();

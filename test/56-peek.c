@@ -22,10 +22,10 @@
 
 #include "56-peek.h"
 
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking() {
+void givenInitializedQueueAndOneElementInIt_WhenPeekElement_ThenNoErrorsOccurredDuringPeeking() {
 
-    char *testName = "GIVEN initialized queue AND one element, "
-                     "WHEN enqueued elements, THEN no errors occurred during peeking";
+    char *testName = "GIVEN initialized queue AND one element in it, "
+                     "WHEN peeked element, THEN no errors occurred during peeking";
 
     START_MESSAGE(testName);
 
@@ -36,18 +36,17 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
     enqueue(&queue, element);
 
     char *peekedElement = peek(&queue);
-    char *dequeuedElement = dequeue(&queue);
 
-    if (peekedElement == element && dequeuedElement == element) SUCCESS_MESSAGE(testName);
+    if (strcmp(peekedElement, element) == 0) SUCCESS_MESSAGE(testName);
     else
         ERROR_MESSAGE(testName);
 
     destroy(&queue);
 }
 
-void givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred() {
+void givenInitializedEmptyQueue_WhenPeekElement_ThenEmptyQueueErrorOccurred() {
 
-    char *testName = "GIVEN initialized empty queue AND one element in it, "
+    char *testName = "GIVEN initialized empty queue, "
                      "WHEN peeked element, THEN empty queue error occurred";
 
     START_MESSAGE(testName);

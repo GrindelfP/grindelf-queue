@@ -23,12 +23,16 @@
 #define ELEMENT_SIZE 100
 #define QUEUE_OVERFLOW_ERROR (-1)
 #define EMPTY_QUEUE_ERROR NULL
+#define null_queue_content_ queue.content = NULL;
+#define null_queue_prams_ queue.size = -1; queue.frontCursor = 0; queue.backCursor = 0;
+#define null_queue_elements_ queue.numberOfElements = 0
 /**
  * Macro for creating a NULL_QUEUE, which is a NULL value for queue.
  * It's size is set to -1 for easier error checking, which is
  * done easily by using NULL_QUEUE_CHECK macro.
  */
-#define NULL_QUEUE queue.content = NULL; queue.size = -1; queue.frontCursor = 0; queue.backCursor = 0; queue.numberOfElements = 0
+#define NULL_QUEUE null_queue_content_ null_queue_prams_ null_queue_elements_
+#define NULL_QUEUE_MESSAGE printf("Queue is NULL!\n\033[0m")
 #define NULL_QUEUE_CHECK(x) x == (-1)
 
 /**

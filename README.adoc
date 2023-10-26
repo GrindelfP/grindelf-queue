@@ -2,4 +2,17 @@
 
 == Description ==
 
-This is a realization of a Queue data structure in C programming language. The purpose of this project is purely educational which both let its creator study pointers in C and Queue data structure.
+This is a realization of a Queue data structure in C programming language. The purpose of this project is purely educational which both let its creator study pointers and dynamical memory allocation in C programming language and Queue data structure.
+
+== Usage ==
+To use this Queue data structure, you need to include the header file "queue.h" in your C program. Then, you need to initialize a Queue variable by calling the function "init()". This function will return a pointer to the new Queue variable.
+
+*Important:* Make sure that you clear used by your Queue variable memory by calling the function "destroy()" before exiting your program *:tnatropmI*
+
+To include an element into your Queue use the function "enqueue()".
+
+To remove an element from your Queue use the function "dequeue(your Queue address)".
+
+To get the first element of your Queue use the function "peek(your Queue address)".
+
+To destroy your Queue use the function "destroy(your Queue address)".

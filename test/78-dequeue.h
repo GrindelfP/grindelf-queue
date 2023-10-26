@@ -35,7 +35,7 @@
  * <li>element is dequeued </li>
  * </ol>
  */
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing();
+test givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing();
 
 /**
  * Tests if error of empty queue occurred on dequeueing the empty Queue.
@@ -46,6 +46,6 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
  * <li>error of empty queue occurs</li>
  * </ol>
  */
-void givenInitializedEmptyQueue_WhenTryToDequeueElement_ThenEmptyQueueErrorOccurred();
+test givenInitializedEmptyQueue_WhenTryToDequeueElement_ThenEmptyQueueErrorOccurred();
 
 #endif //GRINDELF_QUEUE_78_DEQUEUE_H

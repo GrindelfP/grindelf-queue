@@ -32,7 +32,7 @@
  * <li>queue is destroyed </li>
  * </ol>
  */
-void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying();
+test givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying();
 
 /**
  * Tests if error of wrong size occurred on creating the Queue.
@@ -42,6 +42,6 @@ void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying
  * <li>error of wrong size occurs</li>
  * </ol>
  */
-void givenQueueWrongSize_WhenCreated_ThenErrorOfWrongSizeOccurred();
+test givenQueueWrongSize_WhenCreated_ThenErrorOfWrongSizeOccurred();
 
 #endif //GRINDELF_QUEUE_CREATE_DESTROY_TEST_H

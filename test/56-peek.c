@@ -22,7 +22,7 @@
 
 #include "56-peek.h"
 
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking() {
+test givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking() {
 
     char *testName = "GIVEN initialized queue AND one element, "
                      "WHEN enqueued elements, THEN no errors occurred during peeking";
@@ -45,7 +45,7 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
     destroy(&queue);
 }
 
-void givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred() {
+test givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred() {
 
     char *testName = "GIVEN initialized empty queue AND one element in it, "
                      "WHEN peeked element, THEN empty queue error occurred";

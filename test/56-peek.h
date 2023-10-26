@@ -34,7 +34,7 @@
  * <li>element is peeked </li>
  * </ol>
  */
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking();
+test givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringPeeking();
 
 /**
  * Tests if error of empty queue occurred on peeking the Queue.
@@ -45,6 +45,6 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
  * <li>error of empty queue occurs</li>
  * </ol>
  */
-void givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred();
+test givenInitializedEmptyQueueAndOneElementInIt_WhenEnqueuedElements_ThenEmptyQueueErrorOccurred();
 
 #endif //GRINDELF_QUEUE_56_PEEK_H

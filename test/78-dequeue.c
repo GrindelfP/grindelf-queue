@@ -22,7 +22,7 @@
 
 #include "78-dequeue.h"
 
-void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing() {
+test givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOccurredDuringDequeueing() {
 
     char *testName = "GIVEN initialized queue AND one element, WHEN enqueued elements, THEN no errors occurred during enqueueing and peeking and dequeueing";
 
@@ -43,7 +43,7 @@ void givenInitializedQueueAndOneElementInIt_WhenEnqueuedElements_ThenNoErrorsOcc
     destroy(&queue);
 }
 
-void givenInitializedEmptyQueue_WhenTryToDequeueElement_ThenEmptyQueueErrorOccurred() {
+test givenInitializedEmptyQueue_WhenTryToDequeueElement_ThenEmptyQueueErrorOccurred() {
 
     char *testName = "GIVEN initialized empty queue, WHEN try to dequeue element, THEN empty queue error occurred";
 

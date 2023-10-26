@@ -32,7 +32,7 @@
  * done easily by using NULL_QUEUE_CHECK macro.
  */
 #define NULL_QUEUE null_queue_content_ null_queue_prams_ null_queue_elements_
-#define NULL_QUEUE_MESSAGE printf("Queue is NULL!\n\033[0m")
+#define NULL_QUEUE_MESSAGE printf("Queue is NULL!\n")
 #define NULL_QUEUE_CHECK(x) x == (-1)
 
 /**

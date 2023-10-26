@@ -22,7 +22,7 @@
 
 #include "34-enqueue.h"
 
-test givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueing() {
+void givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueing() {
 
     char *testName = "GIVEN initialized queue AND one element, "
                      "WHEN enqueued elements, THEN no errors occurred during enqueueing";
@@ -42,7 +42,7 @@ test givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurre
     destroy(&queue);
 }
 
-test givenInitializedAndFullQueueAndOneMoreElements_WhenTryToEnqueueElement_ThenQueueOverflowErrorOccurred() {
+void givenInitializedAndFullQueueAndOneMoreElements_WhenTryToEnqueueElement_ThenQueueOverflowErrorOccurred() {
 
     char *testName = "GIVEN initialized and full queue AND one more elements, "
                      "WHEN try to enqueue element, THEN queue overflow error occurred";

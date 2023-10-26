@@ -11,6 +11,7 @@
 #
 # README: here are defined one target QueueTest - a test executable that can be run to test the library.
 #         the library by itself is not runnable, because it is not its purpose.
+#
 # HOW TO RUN (using Terminal on Linux or Mac OS):
 #       0. make sure that you have got CMake and GNU make tools installed on your machine, if not - install them.
 #           0.1.1 install CMake on MacOS:

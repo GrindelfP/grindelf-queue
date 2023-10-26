@@ -6,7 +6,7 @@
  *  \____|      \__\_\\__,_|\___|\__,_|\___|
  *
  * Grindelf-Queue project. Queue test source code file, which focuses on testing
- * of creation and destruction of the Queue.
+ * of initialization and destruction of the Queue.
  *
  * (Numbers of the tests are given in order of their execution)
  *
@@ -20,7 +20,7 @@
  *
  */
 
-#include "1-initDestroy.h"
+#include "12-initDestroy.h"
 
 void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying() {
 

@@ -17,8 +17,13 @@
 #include <stdio.h>
 #include "../queue/queue.h"
 
-#define START_MESSAGE(x) printf("\nStarting test '%s'.\n", x)
-#define ERROR_MESSAGE(x) printf("Error occurred while completing test '%s'.\n", x)
-#define SUCCESS_MESSAGE(x) printf("Test '%s' completed successfully!\n", x)
+#include "12-initDestroy.h"
+#include "34-enqueue.h"
+#include "56-peek.h"
+#include "78-dequeue.h"
+
+#define START_MESSAGE(x) printf("\033[1;34m\nStarting test '%s'.\n\033[0m", x)
+#define ERROR_MESSAGE(x) printf("\033[1;31mError occurred while completing test '%s'.\n\033[0m", x)
+#define SUCCESS_MESSAGE(x) printf("\033[1;32mTest '%s' completed successfully!\n\033[0m", x)
 
 #endif //GRINDELF_QUEUE_COMMON_TESTS_H

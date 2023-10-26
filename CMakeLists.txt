@@ -11,7 +11,19 @@
 #
 # README: here are defined one target QueueTest - a test executable that can be run to test the library.
 #         the library by itself is not runnable, because it is not its purpose.
-# HOW TO RUN:
+# HOW TO RUN (using Terminal on Linux or Mac OS):
+#       0. make sure that you have got CMake and GNU make tools installed on your machine, if not - install them.
+#           0.1.1 install CMake on MacOS:
+#                                                               brew install cmake
+#           0.1.2 install CMake on Linux (Ubuntu example):
+#                                                               sudo apt-get -y install cmake
+#           0.1.1 install GNU make on MacOS:
+#                                                               brew install make
+#           0.1.2 install GNU make on Linux (Ubuntu example):
+#                                                               sudo apt install make
+#           0.3 after previous steps check whether you have got CMake and GNU make installed:
+#                                                               cmake --version
+#                                                               make --version
 #       1. Navigate to the required folder of your local machine using terminal or command line.
 #          NB: it is common to complete following operations in the directory: your-project-directory/build
 #       2. Create build files of your project using command:
@@ -39,13 +51,15 @@ set(
         TEST_FILES
         test/test.c
         test/test.h
-        test/1-initDestroy.h
-        test/enqueuePeekDequeue.h
-        test/1-initDestroy.c
-        test/enqueuePeekDequeue.c
+        test/12-initDestroy.h
+        test/12-initDestroy.c
+        test/56-peek.c
+        test/56-peek.h
+        test/34-enqueue.c
+        test/34-enqueue.h
+        test/78-dequeue.c
+        test/78-dequeue.h
         ${QUEUE_SOURCE_FILES}
-        test/34-peek.c
-        test/34-peek.h
 )
 
 add_executable(

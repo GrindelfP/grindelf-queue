@@ -6,7 +6,7 @@
  *  \____|      \__\_\\__,_|\___|\__,_|\___|
  *
  * Grindelf-Queue project. Queue test header file, which focuses on testing
- * of creation and destruction of the Queue.
+ * of initialization and destruction of the Queue.
  *
  * (Numbers of the tests are given in order of their execution)
  *
@@ -36,6 +36,7 @@ void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying
 
 /**
  * Tests if error of wrong size occurred on creating the Queue.
+ * <p><strong>Important:</strong> this test can be run only after Test 1!</p>
  * <ol>
  * <li>queue is created with size lesser than 1 </li>
  * <li>error of wrong size occurs</li>

@@ -15,18 +15,21 @@
 
 Queue init(int size) {
     Queue queue;
-    char **array = (char **) malloc(size * sizeof(char *));
-    for (int i = 0; i < size; ++i) {
-        array[i] = (char *) malloc(ELEMENT_SIZE * sizeof(char));
-    }
-    queue.content = array;
 
-    queue.size = size;
-    queue.frontCursor = INITIAL_CURSOR_POSITION;
-    queue.backCursor = INITIAL_CURSOR_POSITION;
-    queue.numberOfElements = 0;
+    if (size > 0) {
+        char **array = (char **) malloc(size * sizeof(char *));
+        for (int i = 0; i < size; ++i) {
+            array[i] = (char *) malloc(ELEMENT_SIZE * sizeof(char));
+        }
+        queue.content = array;
 
-    printf("Queue initialized!\n");
+        queue.size = size;
+        queue.frontCursor = INITIAL_CURSOR_POSITION;
+        queue.backCursor = INITIAL_CURSOR_POSITION;
+        queue.numberOfElements = 0;
+
+        printf("Queue initialized!\n");
+    } else { NULL_QUEUE; }
 
     return queue;
 }
@@ -37,7 +40,7 @@ int enqueue(Queue *queue, char *element) {
     if (queue->numberOfElements != queue->size) {
         queue->content[queue->backCursor] = (char *) malloc(sizeof(element));
         strcpy(queue->content[queue->backCursor], element);
-        queue->content[queue->backCursor] = element;
+        //queue->content[queue->backCursor] = element;
         queue->backCursor = (queue->backCursor + 1) % queue->size;
         queue->numberOfElements++;
         completion = 0;

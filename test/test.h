@@ -17,7 +17,8 @@
 #include <stdio.h>
 #include "../queue/queue.h"
 
-#define ERROR_MESSAGE(x) printf("Error occurred while completing test: '%s'\n", x)
+#define START_MESSAGE(x) printf("\nStarting test '%s'.\n", x)
+#define ERROR_MESSAGE(x) printf("Error occurred while completing test '%s'.\n", x)
 #define SUCCESS_MESSAGE(x) printf("Test '%s' completed successfully!\n", x)
 
 #endif //GRINDELF_QUEUE_COMMON_TESTS_H

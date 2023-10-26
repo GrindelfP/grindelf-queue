@@ -23,6 +23,13 @@
 #define ELEMENT_SIZE 100
 #define QUEUE_OVERFLOW_ERROR (-1)
 #define EMPTY_QUEUE_ERROR NULL
+/**
+ * Macro for creating a NULL_QUEUE, which is a NULL value for queue.
+ * It's size is set to -1 for easier error checking, which is
+ * done easily by using NULL_QUEUE_CHECK macro.
+ */
+#define NULL_QUEUE queue.content = NULL; queue.size = -1; queue.frontCursor = 0; queue.backCursor = 0; queue.numberOfElements = 0
+#define NULL_QUEUE_CHECK(x) x == (-1)
 
 /**
  * Struct represents a Queue data container.
@@ -50,6 +57,8 @@ struct Queue {
  * Sets Queue's backCursor equal to 0 as initial position.
  * Initializes Queue's content as a 2-d array of chars with lengths of size
  * (length of simple arrays is not pre-defined).
+ * If upon creation of the Queue an error of wrong size occurred, then Queue's content is set to NULL
+ * and NULL_QUEUE returned.
  *
  * @param size - size of the queue as a container.
  *
@@ -58,6 +67,8 @@ struct Queue {
  * <strong>IMPORTANT:</strong>
  * Make sure to call destroy() function when you are done using the Queue
  * to avoid memory leaks.
+ *
+ * @see NULL_QUEUE
  */
 Queue init(int size);
 

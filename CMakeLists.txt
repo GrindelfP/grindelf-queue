@@ -39,11 +39,13 @@ set(
         TEST_FILES
         test/test.c
         test/test.h
-        test/createDestroyTest.h
-        test/enqueuePeekDequeueTest.h
-        test/createDestroyTest.c
-        test/enqueuePeekDequeueTest.c
+        test/1-initDestroy.h
+        test/enqueuePeekDequeue.h
+        test/1-initDestroy.c
+        test/enqueuePeekDequeue.c
         ${QUEUE_SOURCE_FILES}
+        test/34-peek.c
+        test/34-peek.h
 )
 
 add_executable(

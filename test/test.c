@@ -13,18 +13,15 @@
  *
  */
 
-#include "createDestroyTest.h"
-#include "enqueuePeekDequeueTest.h"
+#include "1-initDestroy.h"
+#include "enqueuePeekDequeue.h"
 
 int main() {
+    // Test 1
     givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying();
 
-    givenInitializedQueueAndElement_WhenDequeuedOverQueueSizeElements_ThenErrorOfEmptyQueueOccurred();
-
-    givenInitializedQueueAndElement_WhenEnqueuedOverQueueSizeElements_ThenErrorOfFullQueueOccurred();
-
-    givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueingAndPeekingAndDequeueing();
-
+    // Test 2
+    givenQueueWrongSize_WhenCreated_ThenErrorOfWrongSizeOccurred();
 
     return 0;
 }

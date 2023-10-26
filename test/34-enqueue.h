@@ -32,7 +32,7 @@
  * <li>element is enqueued </li>
  * </ol>
  */
-void givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueing();
+test givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurredDuringEnqueueing();
 
 /**
  * Tests if error of full queue occurred on enqueueing into the full Queue.
@@ -44,6 +44,6 @@ void givenInitializedQueueAndOneElement_WhenEnqueuedElements_ThenNoErrorsOccurre
  * <li>error of full queue occurs</li>
  * </ol>
  */
-void givenInitializedAndFullQueueAndOneMoreElements_WhenTryToEnqueueElement_ThenQueueOverflowErrorOccurred();
+test givenInitializedAndFullQueueAndOneMoreElements_WhenTryToEnqueueElement_ThenQueueOverflowErrorOccurred();
 
 #endif //GRINDELF_QUEUE_34_ENQUEUE_H

@@ -25,5 +25,6 @@
 #define START_MESSAGE(x) printf("\033[1;34m\nStarting test '%s'.\n\033[0m", x)
 #define ERROR_MESSAGE(x) printf("\033[1;31mError occurred while completing test '%s'.\n\033[0m", x)
 #define SUCCESS_MESSAGE(x) printf("\033[1;32mTest '%s' completed successfully!\n\033[0m", x)
+#define test void
 
 #endif //GRINDELF_QUEUE_COMMON_TESTS_H

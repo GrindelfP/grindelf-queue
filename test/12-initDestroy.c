@@ -22,7 +22,7 @@
 
 #include "12-initDestroy.h"
 
-void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying() {
+test givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying() {
 
     char *testName = "GIVEN queues size, WHEN created and destroyed, THEN no errors occurred during destroying";
 
@@ -36,7 +36,7 @@ void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying
     else SUCCESS_MESSAGE(testName);
 }
 
-void givenQueueWrongSize_WhenCreated_ThenErrorOfWrongSizeOccurred() {
+test givenQueueWrongSize_WhenCreated_ThenErrorOfWrongSizeOccurred() {
 
         char *testName = "GIVEN queues wrong size, WHEN created, THEN error of wrong size occurred";
 

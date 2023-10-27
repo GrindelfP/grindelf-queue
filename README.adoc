@@ -8,6 +8,33 @@ This is a realization of a Queue data structure in C programming language. The p
 
 You can access documentation of this library https://grindelfp.github.io/grindelf-queue-docs.github.io/[here].
 
+== Installation ==
+
+To use this library in your project you should follow these steps:
+
+1) Place the file libgrindelf_queue.a in your project build directory (for a CMake project by default it is cmake-build-debug directory).
+2) In your code add an include statement as follows:
+[source, c]
+----
+#include "queue.h"
+----
+3.1) If you are using CMake, add the following lines to your CMakeLists.txt file:
+[souce, CMake]
+----
+add_library(grindelf_queue STATIC IMPORTED)
+
+set_target_properties(grindelf_queue PROPERTIES IMPORTED_LOCATION /path/to/library_directory/libgrindelf_queue.a)
+
+target_link_libraries(your_target_name grindelf_queue)
+----
+Make sure you replace /path/to/library_directory/libgrindelf_queue.a with path to where you've placed your library .a file.
+3.2) If you are not using CMake, add the following line to your compiler command (example given with gcc):
+[source, bash]
+----
+gcc -o output_file source_file.c -L/path/to/library_directory -lgrindelf_queue
+----
+Make sure you replace /path/to/library_directory with path to where you've placed your library .a file (without filename in the path).
+
 == Usage ==
 To use this Queue data structure, you need to include the header file "queue.h" in your C program. Then, you need to initialize a Queue variable by calling the function "init()". This function will return a pointer to the new Queue variable.
 

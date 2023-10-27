@@ -48,6 +48,20 @@ set(
         queue/queue.c
 )
 
+add_library(grindelf_queue SHARED ${QUEUE_SOURCE_FILES})
+
+install(TARGETS grindelf_queue
+        LIBRARY DESTINATION lib)
+install(FILES queue/queue.h
+        DESTINATION include)
+
+set(CPACK_PACKAGE_NAME "Grindelf Queue")
+set(CPACK_PACKAGE_VENDOR "GrindelfP")
+set(CPACK_PACKAGE_VERSION_MAJOR "1")
+set(CPACK_PACKAGE_VERSION_MINOR "0")
+set(CPACK_PACKAGE_VERSION_PATCH "0")
+include(CPack)
+
 set(
         TEST_FILES
         test/test.c
@@ -66,3 +80,5 @@ set(
 add_executable(
         QueueTest ${TEST_FILES}
 )
+
+target_link_libraries(QueueTest grindelf_queue)

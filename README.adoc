@@ -2,7 +2,7 @@
 
 == Description ==
 
-This is a realization of a Queue data structure in C programming language. The purpose of this project is purely educational which both let its creator study pointers and dynamical memory allocation in C programming language and Queue data structure.
+This is an implementation of a Queue data structure in C programming language. The purpose of this project is purely educational which both let its creator study pointers and dynamical memory allocation in C programming language and Queue data structure.
 
 == Documentation ==
 

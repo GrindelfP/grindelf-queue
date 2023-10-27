@@ -35,7 +35,7 @@
 void givenQueueSize_WhenCreatedAndDestroyed_ThenNoErrorsOccurredDuringDestroying();
 
 /**
- * Tests if error of wrong size occurred on creating the Queue.
+ * Tests if error of wrong size occurred on creating the Queue with size lesser than 1.
  * <p><strong>Important:</strong> this test can be run only after Test 1!</p>
  * <ol>
  * <li>queue is created with size lesser than 1 </li>

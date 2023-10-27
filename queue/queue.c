@@ -51,12 +51,13 @@ int enqueue(Queue *queue, char *element) {
 }
 
 char *dequeue(Queue *queue) {
-    char *result;
+    char *result = NULL;
 
     if (queue->numberOfElements == 0) {
         result = EMPTY_QUEUE_ERROR;
     } else {
-        result = queue->content[queue->frontCursor];
+        size_t elementSize = sizeof(queue->content[queue->frontCursor]);
+        strncpy(result, queue->content[queue->frontCursor], elementSize);
         queue->frontCursor = (queue->frontCursor + 1) % queue->size;
         queue->numberOfElements--;
     }
@@ -66,12 +67,13 @@ char *dequeue(Queue *queue) {
 }
 
 char *peek(Queue *queue) {
-    char *result;
+    char *result = NULL;
 
     if (queue->numberOfElements == 0) {
         result = EMPTY_QUEUE_ERROR;
     } else {
-        result = queue->content[queue->frontCursor];
+        size_t elementSize = sizeof(queue->content[queue->frontCursor]);
+        strncpy(result, queue->content[queue->frontCursor], elementSize);
     }
     printf("Element %s peeked!\n", result);
 
